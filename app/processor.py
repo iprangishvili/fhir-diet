@@ -12,6 +12,7 @@ def _process_single_resource(resource, settings):
             {'path': x.path, 'value': x.data} for x in els]}
         matched_elements = fhirpathpy.evaluate(
             resource, rule['match'] + '.log()', [])
+        result = None
         for el in matched_elements:
             action = rule['action']
             params = rule['params'] if 'params' in rule.keys() else {}
@@ -24,6 +25,8 @@ def _process_single_resource(resource, settings):
                     action, resource, el, params)
             else:
                 not_implemented(f'Method {action} is not implemented')
+    if result is None:
+        print("No match with the target path")
     return result
 
 

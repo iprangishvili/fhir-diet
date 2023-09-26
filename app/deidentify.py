@@ -1,7 +1,7 @@
 from utils.util import not_implemented
 from actions.keep import keep_by_path
 from actions.redact import redact_by_path
-from actions.cryptohash import cryptohash_by_path
+from actions.cryptoHash import cryptohash_by_path
 from actions.perturb import perturb_by_path
 from actions.substitute import substitute_by_path
 
